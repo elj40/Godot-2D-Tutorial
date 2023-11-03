@@ -1,0 +1,60 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-1.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/jump/player-jump-2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/jump/player-jump-1.png" type="Texture" id=4]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-4.png" type="Texture" id=6]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" type="Texture" id=7]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-3.png" type="Texture" id=8]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-4.png" type="Texture" id=10]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-2.png" type="Texture" id=11]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-3.png" type="Texture" id=12]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.0
+height = 5.968
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Run",
+"speed": 12.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.984 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Idle"
+offset = Vector2( 0, -4.759 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 17, 4 )
