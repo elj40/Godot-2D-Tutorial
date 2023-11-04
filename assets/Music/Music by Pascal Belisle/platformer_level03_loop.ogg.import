@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/platformer_level03_loop.ogg-f0432f621a63bc59b5aec939f4a359c3.oggstr"
+
+[deps]
+
+source_file="res://assets/Music/Music by Pascal Belisle/platformer_level03_loop.ogg"
+dest_files=[ "res://.import/platformer_level03_loop.ogg-f0432f621a63bc59b5aec939f4a359c3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

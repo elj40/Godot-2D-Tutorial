@@ -7,7 +7,10 @@ const gravity = 300
 
 const cherry = preload("res://scenes/Cherry.tscn")
 
+var is_dead = false;
 func _physics_process(delta):
+	if is_dead:
+		return
 	
 	velocity.x = 0
 	if Input.is_action_pressed("ui_right"):
@@ -45,4 +48,15 @@ func _physics_process(delta):
 	
 
 	velocity = move_and_slide(velocity, Vector2.UP)
-	pass
+	
+
+func dead():
+	is_dead = true
+	velocity = Vector2(0,0)
+	$AnimatedSprite.play("Die")
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://scenes/Menu.tscn")

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player-hurt-1.png-c111a41f9cbcb46f090c089ab01d7acc.stex"
+path="res://.import/Start.png-82b6adda4eb1c93e2a3ab515df555b0c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-1.png"
-dest_files=[ "res://.import/player-hurt-1.png-c111a41f9cbcb46f090c089ab01d7acc.stex" ]
+source_file="res://assets/Menu/Start.png"
+dest_files=[ "res://.import/Start.png-82b6adda4eb1c93e2a3ab515df555b0c.stex" ]
 
 [params]
 

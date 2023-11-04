@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-1.png" type="Texture" id=1]
 [ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" type="Texture" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-4.png" type="Texture" id=10]
 [ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-2.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-3.png" type="Texture" id=12]
+[ext_resource path="res://scenes/PlayerMovement.gd" type="Script" id=13]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-2.png" type="Texture" id=14]
+[ext_resource path="res://assets/Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-1.png" type="Texture" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
@@ -19,6 +22,11 @@ height = 5.968
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Die",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Fall",
@@ -46,6 +54,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.984 )
@@ -53,8 +62,22 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "Idle"
+animation = "Die"
 offset = Vector2( 0, -4.759 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 17, 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = -50
+limit_right = 642
+limit_bottom = 180
+smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -23,7 +23,6 @@ func set_cherry_direction(dir):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-
 func _on_Throw_body_entered(body):
 	if "Opossum" in body.get_name():
 		body.dead()

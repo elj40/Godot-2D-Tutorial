@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ScreenShake.gd" type="Script" id=2]
 [ext_resource path="res://scenes/GroundTileSet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Sunny-land-files/Graphical Assets/environment/Background/back.png" type="Texture" id=5]
-[ext_resource path="res://scenes/Next_Scene.tscn" type="PackedScene" id=6]
 
 [node name="Stage1" type="Node2D"]
 
@@ -19,7 +18,7 @@ __meta__ = {
 position = Vector2( 1, 6 )
 
 [node name="Opossum" parent="." instance=ExtResource( 4 )]
-position = Vector2( 96, 161 )
+position = Vector2( 95, 156 )
 size = Vector2( 1.5, 1.5 )
 
 [node name="Opossum2" parent="." instance=ExtResource( 4 )]
@@ -47,9 +46,5 @@ centered = false
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="ScreenShake"]
-
-[node name="Next_Scene" parent="." instance=ExtResource( 6 )]
-position = Vector2( 601, 149 )
-target_state = "res://scenes/Stage1.tscn"
 
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]
